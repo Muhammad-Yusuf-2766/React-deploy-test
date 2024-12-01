@@ -1,12 +1,17 @@
-//index.js - Serves as the entry point for your React application
-
 import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App' // Your main application component
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
 
-ReactDOM.render(
+const rootElement = document.getElementById('root')
+const root = ReactDOM.createRoot(rootElement)
+
+root.render(
 	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
-	document.getElementById('root')
+		<BrowserRouter
+			future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+		>
+			<App />
+		</BrowserRouter>
+	</React.StrictMode>
 )

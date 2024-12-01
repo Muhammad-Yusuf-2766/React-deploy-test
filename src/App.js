@@ -2,7 +2,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Todo from './Todo'
 
 function App() {
@@ -12,11 +12,9 @@ function App() {
 	return (
 		<div>
 			<h1 style={headStyle}>Todo List</h1>
-			<BrowserRouter>
-				<Routes>
-					<Route path='/' element={<Todo />}></Route>
-				</Routes>
-			</BrowserRouter>
+			<Routes>
+				<Route path='/' element={<Todo />}></Route>
+			</Routes>
 		</div>
 	)
 }
