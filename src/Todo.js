@@ -11,10 +11,7 @@ function Todo() {
 	const [newDeadline, setNewDeadline] = useState('')
 	const [editedDeadline, setEditedDeadline] = useState('')
 
-	const baseUrl =
-		process.env.REACT_APP_NODE_ENV === 'development'
-			? process.env.REACT_APP_LOCAL_BASE_URL
-			: process.env.REACT_APP_SERVER_BASE_URL
+	const baseUrl = process.env.REACT_APP_SERVER_BASE_URL
 	console.log(baseUrl)
 
 	// Fetch tasks from database
