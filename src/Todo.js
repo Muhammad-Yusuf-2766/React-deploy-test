@@ -11,7 +11,7 @@ function Todo() {
 	const [newDeadline, setNewDeadline] = useState('')
 	const [editedDeadline, setEditedDeadline] = useState('')
 
-	const baseUrl = process.env.REACT_APP_SERVER_BASE_URL
+	const baseUrl = 'http://43.203.125.106:3001'
 	console.log(baseUrl)
 
 	// Fetch tasks from database
