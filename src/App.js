@@ -9,6 +9,7 @@ function App() {
 	const headStyle = {
 		textAlign: 'center',
 	}
+
 	return (
 		<div>
 			<h1 style={headStyle}>Todo List</h1>

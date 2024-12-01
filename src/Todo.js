@@ -11,10 +11,16 @@ function Todo() {
 	const [newDeadline, setNewDeadline] = useState('')
 	const [editedDeadline, setEditedDeadline] = useState('')
 
+	const baseUrl =
+		process.env.REACT_APP_NODE_ENV === 'development'
+			? process.env.REACT_APP_LOCAL_BASE_URL
+			: process.env.REACT_APP_SERVER_BASE_URL
+	console.log(baseUrl)
+
 	// Fetch tasks from database
 	useEffect(() => {
 		axios
-			.get('http://127.0.0.1:3001/getTodoList')
+			.get(`${baseUrl}/getTodoList`)
 			.then(result => {
 				setTodoList(result.data)
 			})
@@ -46,7 +52,7 @@ function Todo() {
 		}
 
 		axios
-			.post('http://127.0.0.1:3001/addTodoList', {
+			.post(`${baseUrl}/addTodoList`, {
 				task: newTask,
 				status: newStatus,
 				deadline: newDeadline,
@@ -74,7 +80,7 @@ function Todo() {
 
 		// Updating edited data to the database through updateById API
 		axios
-			.post('http://127.0.0.1:3001/updateTodoList/' + id, editedData)
+			.post(`${baseUrl}/updateTodoList/` + id, editedData)
 			.then(result => {
 				console.log(result)
 				setEditableId(null)
@@ -89,7 +95,7 @@ function Todo() {
 	// Delete task from database
 	const deleteTask = id => {
 		axios
-			.delete('http://127.0.0.1:3001/deleteTodoList/' + id)
+			.delete(`${baseUrl}/deleteTodoList/` + id)
 			.then(result => {
 				console.log(result)
 				window.location.reload()
